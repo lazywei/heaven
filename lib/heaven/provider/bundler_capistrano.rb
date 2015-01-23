@@ -38,7 +38,7 @@ module Heaven
 
       def ignored_groups
         # bundle_definition.groups - [:heaven, :deployment]
-        [:test, :heaven]
+        [:default, :doc, :test]
       end
 
       def bundle_definition
