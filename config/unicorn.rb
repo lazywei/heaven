@@ -4,7 +4,7 @@ timeout 15
 preload_app true
 
 before_fork do |server, worker|
-  @resque_pid ||= spawn("bundle exec resque:work QUEUE=*")
+  @resque_pid ||= spawn("bundle exec rake resque:work QUEUE=*")
   puts "Resque PID=#{@resque_pid}"
 
   Signal.trap "TERM" do
