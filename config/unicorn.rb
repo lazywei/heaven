@@ -5,6 +5,7 @@ preload_app true
 
 before_fork do |server, worker|
   @resque_pid ||= spawn("bundle exec resque:work QUEUE=*")
+  puts "Resque PID=#{@resque_pid}"
 
   Signal.trap "TERM" do
     puts "Unicorn master intercepting TERM and sending myself QUIT instead"
