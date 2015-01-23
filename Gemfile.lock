@@ -61,7 +61,20 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    capistrano-platform-resources (0.1.3)
+      capistrano (< 3)
+    capistrano-rails (1.0.0)
+      capistrano
+    capistrano-rbenv (1.0.5)
+      capistrano (< 3)
+      capistrano-platform-resources (>= 0.1.3)
+    capistrano-sidekiq (0.4.0)
+      capistrano
+      sidekiq
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     coderay (1.1.0)
+    connection_pool (2.1.1)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
@@ -85,6 +98,7 @@ GEM
     hike (1.2.3)
     hipchat (1.1.0)
       httparty
+    hitimes (1.2.2)
     httparty (0.13.1)
       json (~> 1.8)
       multi_xml (>= 0.5.2)
@@ -201,6 +215,12 @@ GEM
     sawyer (0.5.5)
       addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
+    sidekiq (3.3.0)
+      celluloid (>= 0.16.0)
+      connection_pool (>= 2.0.0)
+      json
+      redis (>= 3.0.6)
+      redis-namespace (>= 1.3.1)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -224,6 +244,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     unicorn (4.8.2)
@@ -253,7 +275,10 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   campfiyah
-  capistrano (= 2.9.0)
+  capistrano
+  capistrano-rails
+  capistrano-rbenv
+  capistrano-sidekiq
   dpl (= 1.5.7)
   faraday
   faraday_middleware
