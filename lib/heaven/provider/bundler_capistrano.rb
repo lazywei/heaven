@@ -26,7 +26,8 @@ module Heaven
             bundler_string = ["bundle", "install", "--without", ignored_groups.join(" ")]
             log "Executing bundler: #{bundler_string.join(" ")}"
             execute_and_log(bundler_string)
-            deploy_string = ["bundle", "exec", "cap", environment, "-s", "branch=#{ref}", task]
+            deploy_string = ["bundle", "exec", "cap", environment, task]
+            # deploy_string = ["bundle", "exec", "cap", environment, "-s", "branch=#{ref}", task]
             log "Executing capistrano: #{deploy_string.join(" ")}"
             execute_and_log(deploy_string, "BRANCH" => ref)
           end
@@ -36,7 +37,8 @@ module Heaven
       private
 
       def ignored_groups
-        bundle_definition.groups - [:heaven, :deployment]
+        # bundle_definition.groups - [:heaven, :deployment]
+        [:test, :heaven]
       end
 
       def bundle_definition
