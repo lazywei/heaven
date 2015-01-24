@@ -28,7 +28,7 @@ module Heaven
             execute_and_log(bundler_string)
             execute_and_log(["ping", "-c", "3", "staging.yoctol.com"])
             # deploy_string = ["bundle", "exec", "cap", environment, "-s", "branch=#{ref}", task]
-            deploy_string = ["bundle", "exec", "cap", environment, task]
+            deploy_string = ["yes", "|", "bundle", "exec", "cap", environment, task]
             log "Executing capistrano: #{deploy_string.join(" ")}"
             execute_and_log(deploy_string, "BRANCH" => ref)
           end
